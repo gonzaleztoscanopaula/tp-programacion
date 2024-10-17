@@ -1,0 +1,151 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* Main */
+main {
+    padding: 20px;
+}
+
+.recomendaciones {
+    margin: 20px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Productos */
+.productos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.producto h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.producto p {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 1.2rem;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+/* Productos recomendados */
+.productos-recomendados {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.producto-recomendado {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto-recomendado:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto-recomendado img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.producto-recomendado h3 {
+    margin-top: 10px;
+    font-size: 1.1em;
+}
+
+.producto-recomendado p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.producto-recomendado .precio {
+    color: #e67e22;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .productos, .productos-recomendados {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .producto, .producto-recomendado {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}

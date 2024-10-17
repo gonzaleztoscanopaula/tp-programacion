@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trabajo practico</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Hola Roberto!!</h1>
+  </header>
+
+  <main>
+    <section class="recomendaciones">
+      <h2>Tus últimas compras</h2>
+      <div id="productos-container" class="productos">
+        <div class="producto" data-product-id="1">
+          <img src="assets/laptop.jpg" alt="Laptop Gamer">
+          <h3>Laptop Gamer</h3>
+          <p>Sumérgete en el mundo de los videojuegos con esta potente laptop gamer. Equipada con un procesador Intel Core i7 de última generación, 16GB de RAM DDR4 y una tarjeta gráfica NVIDIA GeForce RTX 3060, podrás disfrutar de tus juegos favoritos con la máxima fluidez y calidad gráfica. Su pantalla de 15.6 pulgadas con resolución Full HD te ofrece imágenes nítidas y vibrantes, mientras que su sistema de refrigeración avanzado mantiene la temperatura bajo control incluso durante las sesiones de juego más intensas. Además, cuenta con un teclado retroiluminado RGB personalizable y un sonido envolvente para una experiencia de juego inmersiva.</p>
+          <span class="precio">$1.900.000,00</span>
+        </div>
+
+        <div class="producto" data-product-id="2">
+          <img src="assets/mouse.jpg" alt="Mouse Inalámbrico">
+          <h3>Mouse Inalámbrico</h3>
+          <p>Di adiós a los cables con este mouse inalámbrico de alto rendimiento. Su diseño ergonómico se adapta perfectamente a tu mano, brindando comodidad incluso durante largas jornadas de uso. El sensor óptico de alta precisión te ofrece un control preciso del cursor en cualquier superficie, mientras que la conexión inalámbrica de 2.4GHz garantiza una transmisión rápida y sin interrupciones. Con una batería de larga duración y un diseño elegante y moderno, este mouse es la opción ideal para el trabajo, el estudio o el entretenimiento.</p>
+          <span class="precio">$35.000,00</span>
+        </div>
+
+        <div class="producto" data-product-id="3">
+          <img src="assets/teclado.jpg" alt="Teclado Mecánico">
+          <h3>Teclado Mecánico</h3>
+          <p>Experimenta la diferencia con este teclado mecánico de alta calidad. Sus interruptores Cherry MX Blue te ofrecen una respuesta táctil y un sonido clicky satisfactorio con cada pulsación, ideal para escribir con precisión y velocidad. La construcción robusta y duradera del teclado garantiza una larga vida útil, mientras que la retroiluminación LED te permite usarlo cómodamente incluso en entornos con poca luz. Con un diseño compacto y elegante, este teclado es perfecto para gamers, programadores y cualquier persona que busque una experiencia de escritura superior.</p>
+          <span class="precio">$120.000,00</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="recomendaciones-secundarias">
+      <h2>Otros clientes tambien compraron:</h2>
+      <div id="recomendaciones-container" class="productos-recomendados">
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Sistema de Recomendación de Productos</p>
+  </footer>
+
+  <script>
+    // Array de productos y sus recomendaciones
+    const productosRecomendados = {
+      1: [
+        { id: 4, nombre: "Monitor Gamer", precio: "$300.000,00", imagen: "assets/monitor.jpeg" },
+        { id: 5, nombre: "Auriculares Gamer", precio: "$150.000,00", imagen: "assets/auriculares.jpg" },
+        { id: 6, nombre: "Alfombrilla Gamer", precio: "$25.000,00", imagen: "assets/alfombrilla.jpg" }
+      ],
+      2: [
+        { id: 7, nombre: "Teclado Gamer", precio: "$180.000,00", imagen: "assets/teclado.jpg" },
+        { id: 8, nombre: "Mousepad Gamer", precio: "$55.000,00", imagen: "assets/mousepad.jpeg" },
+        { id: 11, nombre: "Audífonos Gamer", precio: "$80.000,00", imagen: "assets/auriculares.jpg" } // Nueva recomendación para el mouse
+      ],
+      3: [
+        { id: 9, nombre: "Reposamuñecas", precio: "$20.000,00", imagen: "assets/reposamuñecas.jpeg" },
+        { id: 10, nombre: "Kit de limpieza", precio: "$10.000,00", imagen: "assets/kitdelimpieza.jpeg" },
+        { id: 12, nombre: "Mouse Gamer", precio: "$45.000,00", imagen: "assets/mouse.jpg" } // Nueva recomendación para el teclado
+      ]
+    };
+
+    // Función para mostrar recomendaciones en el nuevo contenedor
+// ... (código anterior) ...
+
+// Función para mostrar recomendaciones en el nuevo contenedor
+function mostrarRecomendaciones(idProducto) {
+  const recomendacionesContainer = document.getElementById('recomendaciones-container');
+  recomendacionesContainer.innerHTML = ''; // Limpiar las recomendaciones previas
+
+  // Obtener las recomendaciones basadas en el producto seleccionado
+  const recomendaciones = productosRecomendados[idProducto];
+  if (recomendaciones) {
+    recomendaciones.forEach(producto => {
+      const productoDiv = document.createElement('div');
+      productoDiv.classList.add('producto-recomendado');
+
+      let descripcion = "";
+      switch (producto.id) {
+        case 4:
+          descripcion = "Disfruta de una experiencia visual inmersiva con este monitor gamer de 27 pulgadas con resolución QHD y una tasa de refresco de 144Hz. Su tiempo de respuesta de 1ms elimina el desenfoque de movimiento, mientras que la tecnología AMD FreeSync Premium ofrece una experiencia de juego fluida y sin tearing.";
+          break;
+        case 5:
+          descripcion = "Sumérgete en el juego con estos auriculares gamer con sonido envolvente 7.1 y potentes controladores de neodimio. Su micrófono con cancelación de ruido te permite comunicarte con claridad con tus compañeros de equipo, mientras que su diseño ligero y cómodo te permite usarlos durante horas sin fatiga.";
+          break;
+        case 6:
+          descripcion = "Optimiza tu precisión y control con esta alfombrilla gamer de gran tamaño con una superficie de tela microtexturada. Su base de goma antideslizante la mantiene firmemente en su lugar, mientras que sus bordes cosidos evitan el deshilachado.";
+          break;
+        case 7:
+          descripcion = "Domina el juego con este teclado gamer con retroiluminación RGB personalizable e interruptores mecánicos de alta respuesta. Sus teclas macro programables te permiten ejecutar comandos complejos con una sola pulsación, mientras que su diseño resistente a salpicaduras lo protege de accidentes.";
+          break;
+        case 8:
+          descripcion = "Mejora tu experiencia de juego con este mousepad gamer con una superficie optimizada para sensores ópticos y láser. Su base de goma antideslizante proporciona una estabilidad excepcional, mientras que su diseño delgado y ligero lo hace ideal para llevar a cualquier lugar.";
+          break;
+        case 11:
+          descripcion = "Escucha cada detalle del juego con estos audífonos gamer con sonido estéreo de alta fidelidad y potentes bajos. Su diseño circumaural con almohadillas acolchadas te aísla del ruido exterior, mientras que su micrófono flexible te permite comunicarte con claridad.";
+          break;
+        case 9:
+          descripcion = "Brinda comodidad y soporte a tus muñecas con este reposamuñecas ergonómico de espuma viscoelástica. Su diseño suave y acolchado reduce la presión en las muñecas, previniendo la fatiga y las lesiones por esfuerzo repetitivo.";
+          break;
+        case 10:
+          descripcion = "Mantén tu equipo limpio y en óptimas condiciones con este kit de limpieza que incluye un cepillo, un paño de microfibra y un limpiador de pantallas. Ideal para eliminar el polvo, las huellas dactilares y la suciedad de teclados, ratones, monitores y otros dispositivos electrónicos.";
+          break;
+        case 12:
+          descripcion = "Experimenta la precisión y velocidad con este mouse gamer con sensor óptico de alta precisión y DPI ajustable. Su diseño ergonómico y ligero te brinda comodidad durante largas sesiones de juego, mientras que su iluminación RGB personalizable le da un toque de estilo a tu setup.";
+          break;
+        default:
+          descripcion = "Descripción breve del producto.";
+      }
+
+      productoDiv.innerHTML = `
+      <img src="${producto.imagen}" alt="${producto.nombre}">
+      <h3>${producto.nombre}</h3>
+      <p>${descripcion}</p>
+      <span class="precio">${producto.precio}</span>
+      `;
+
+      recomendacionesContainer.appendChild(productoDiv);
+    });
+  } else {
+    // Mostrar un mensaje si no hay recomendaciones
+    recomendacionesContainer.innerHTML = '<p>No hay recomendaciones para este producto.</p>';
+  }
+
+}
+
+    // Agregar eventos de clic a los productos iniciales
+    document.querySelectorAll('.producto').forEach(producto => {
+      producto.addEventListener('click', function () {
+        const idProducto = this.getAttribute('data-product-id');
+        mostrarRecomendaciones(idProducto);
+      });
+    });
+  </script>
+</body>
+</html>
